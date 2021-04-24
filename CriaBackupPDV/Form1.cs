@@ -7,14 +7,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using CriaBackupPDV.Entities;
 
 namespace CriaBackupPDV
 {
-    public partial class Form1 : Form
+    public partial class frmPrincipal : Form
     {
-        public Form1()
+        public frmPrincipal()
         {
             InitializeComponent();
+        }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnBackup_Click(object sender, EventArgs e)
+        {
+            string nameClient = txtNome.Text.ToUpper();
+            int pdvVersion = int.Parse(txtVersao.Text);
+            int draftNumber = int.Parse(txtDraft.Text);
+
+            try
+            {
+
+            }
+            catch ()
+            {
+
+            }
         }
     }
 }
