@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Arquivo.cs" />
+    <Compile Include="Enums\Clientes.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

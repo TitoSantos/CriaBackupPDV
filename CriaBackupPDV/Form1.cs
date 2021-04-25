@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using CriaBackupPDV.Entities;
+using CriaBackupPDV.Enums;
 
 namespace CriaBackupPDV
 {
@@ -26,18 +27,21 @@ namespace CriaBackupPDV
 
         private void btnBackup_Click(object sender, EventArgs e)
         {
-            string nameClient = txtNome.Text.ToUpper();
-            int pdvVersion = int.Parse(txtVersao.Text);
-            int draftNumber = int.Parse(txtDraft.Text);
-
-            try
+            
+            if (cbNomeCliente.Text == string.Empty || txtVersao.Text == string.Empty || txtDraft.Text == string.Empty)
             {
-
+                MessageBox.Show("Favor preencher todos os campos!");
+                cbNomeCliente.Focus();
             }
-            catch ()
+            else
             {
-
+                Clientes nomeCliente = (Clientes)Enum.Parse(typeof(Clientes), cbNomeCliente.Text);
+                int pdvVersao = int.Parse(txtVersao.Text);
+                int numeroDraft = int.Parse(txtDraft.Text);
+                Arquivo arquivo = new Arquivo(nomeCliente, pdvVersao, numeroDraft);
+                arquivo.CriaBackup();
             }
+            
         }
     }
 }
